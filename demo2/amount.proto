@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "github.com/banked/gopherconuk2022/demo2;demo2";
+
+package banked.payment;
+
+message Amount {
+  int64 cents = 1;
+
+  string currency = 2;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "github.com/banked/gopherconuk2022/demo3;demo3";
+
+import "amount.proto";
+import "google/protobuf/timestamp.proto";
+
+package banked.payment;
+
+message ErrInsuffcientFunds {
+  string payment_id = 1;
+
+  banked.payment.Amount amount = 2;
+
+  string provider = 3;
+
+  google.protobuf.Timestamp attempted_at = 4;
+}

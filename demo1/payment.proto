@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "github.com/banked/gopherconuk2022/demo1;demo1";
+
+package payment;
+
+message ErrInsuffcientFunds {
+  string payment_id = 1;
+  int64 amount = 2;
+  string currency = 3;
+  string provider = 4;
+}
