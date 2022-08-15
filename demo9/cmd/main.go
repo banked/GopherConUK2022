@@ -8,8 +8,8 @@ import (
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	paymentv1 "github.com/banked/gopherconuk2022/demo8/banked/payment/v1"
-	bankedv1 "github.com/banked/gopherconuk2022/demo8/banked/v1"
+	paymentv1 "github.com/banked/gopherconuk2022/demo9/banked/payment/v1"
+	bankedv1 "github.com/banked/gopherconuk2022/demo9/banked/v1"
 )
 
 func main() {

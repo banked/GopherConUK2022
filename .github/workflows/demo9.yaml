@@ -55,6 +55,10 @@ jobs:
         working-directory: demo9
         run: buf generate
 
+      - name: Go Mod Tidy
+        working-directory: demo9
+        run: go mod tidy
+
       - name: Commit Generated Code
         if: ${{ success() }}
         uses: EndBug/add-and-commit@v9

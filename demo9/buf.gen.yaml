@@ -2,7 +2,7 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: github.com/banked/gopherconuk2022/demo8
+    default: github.com/banked/gopherconuk2022/demo9
     except:
       - buf.build/envoyproxy/protoc-gen-validate
 plugins:

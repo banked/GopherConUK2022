@@ -1,4 +1,4 @@
-module github.com/banked/gopherconuk2022/demo8
+module github.com/banked/gopherconuk2022/demo9
 
 go 1.18
 
