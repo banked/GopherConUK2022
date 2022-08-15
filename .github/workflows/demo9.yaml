@@ -14,8 +14,8 @@ env:
   BUF_VERSION: 1.7.0
 
 jobs:
-  lint-breaking:
-    name: Lint & Breaking Changes
+  lint:
+    name: Linting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -29,14 +29,28 @@ jobs:
         with:
           input: "demo9"
 
+  breaking:
+    name: Breaking Change Prevention
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: bufbuild/buf-setup-action@v1
+        with:
+          version: ${{ env.BUF_VERSION }}
+          github_token: ${{ github.token }}
+
       - uses: bufbuild/buf-breaking-action@v1
         with:
           input: "demo9"
           against: "https://x-oauth-basic:${{ github.token }}@github.com/banked/gopherconuk2022.git#branch=main,ref=HEAD,subdir=demo9"
 
-  build:
+  generate:
     name: Code Generate
     runs-on: ubuntu-latest
+    needs:
+      - lint
+      - breaking
     steps:
       - uses: actions/checkout@v2
         with:
