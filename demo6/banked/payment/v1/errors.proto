@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/banked/gopherconuk2022/demo5/banked/payment/v1;paymentv1";
+option go_package = "github.com/banked/gopherconuk2022/demo6/banked/payment/v1;paymentv1";
 
 import "banked/v1/amount.proto";
 import "google/protobuf/timestamp.proto";
