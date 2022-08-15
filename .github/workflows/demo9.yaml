@@ -1,4 +1,4 @@
-name: Lint & Check for Breaking Changes
+name: Demo9
 
 on:
   pull_request:
@@ -68,6 +68,11 @@ jobs:
       - name: Generate Code
         working-directory: demo9
         run: buf generate
+
+      - name: Setup Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
 
       - name: Go Mod Tidy
         working-directory: demo9
