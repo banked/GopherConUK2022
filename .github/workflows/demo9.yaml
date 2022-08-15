@@ -3,6 +3,7 @@ name: Lint & Check for Breaking Changes
 on:
   pull_request:
     paths:
+      - .github/workflows/demo9.yaml
       - demo9/buf.lock
       - demo9/buf.yaml
       - demo9/buf.work.yaml
@@ -32,3 +33,30 @@ jobs:
         with:
           input: "demo9"
           against: "https://x-oauth-basic:${{ github.token }}@github.com/banked/gopherconuk2022.git#branch=main,ref=HEAD,subdir=demo9"
+
+  build:
+    name: Code Generate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - uses: bufbuild/buf-setup-action@v1
+        with:
+          version: ${{ env.BUF_VERSION }}
+          github_token: ${{ github.token }}
+
+      - name: "Clean Generated Code"
+        run: rm -rf ./demo/**/*.pb.* && find ./demo9 -type d -empty -print -delete
+
+      - name: Generate Code
+        working-directory: demo9
+        run: buf generate
+
+      - name: Commit Generated Code
+        if: ${{ success() }}
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: "chore: generated proto code"
