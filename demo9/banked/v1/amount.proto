@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package banked.v1;
+
+message Amount {
+  int64 cents = 1;
+
+  string currency = 2;
+}

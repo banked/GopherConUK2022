@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "banked/v1/amount.proto";
+
+package banked.payment.v1;
+
+service PaymentService {
+  rpc MakePayment(MakePaymentRequest) returns (MakePaymentResponse) {}
+}
+
+message MakePaymentRequest {
+  banked.v1.Amount amount = 1;
+}
+
+message MakePaymentResponse {}

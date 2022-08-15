@@ -1,2 +1,11 @@
 .envrc
-*.pb.go
+
+demo1/**/*.pb.go
+demo2/**/*.pb.go
+demo3/**/*.pb.go
+demo4/**/*.pb.go
+demo5/**/*.pb.go
+demo6/**/*.pb.go
+demo7/**/*.pb.go
+demo8/**/*.pb.go
+demo8/**/*.pb.*.go
