@@ -14,4 +14,6 @@ message ErrInsuffcientFunds {
   string provider = 3;
 
   google.protobuf.Timestamp attempted_at = 4;
+
+  string foo = 5;
 }
